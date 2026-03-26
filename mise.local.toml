@@ -1,0 +1,8 @@
+[tools]
+neovim = "nightly"
+ripgrep = "latest"
+fd = "latest"
+lazygit = "latest"
+fzf = "latest"
+jq = "latest"
+tree-sitter = "latest"
