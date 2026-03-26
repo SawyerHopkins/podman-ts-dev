@@ -1,3 +1,7 @@
+--[[
+Provides language parsing for syntax highlighting, indentation and folding.
+--]]
+
 --[[ PRE-INSTALL --]]
 
 vim.api.nvim_create_autocmd('PackChanged', {
@@ -47,7 +51,7 @@ vim.api.nvim_create_autocmd('FileType', {
     if vim.treesitter.language.add(lang) then
       vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
       vim.wo[0][0].foldmethod = 'expr'
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      vim.bo.indentexpr = 'v:lua.require\'nvim-treesitter\'.indentexpr()'
       vim.treesitter.start()
     end
   end

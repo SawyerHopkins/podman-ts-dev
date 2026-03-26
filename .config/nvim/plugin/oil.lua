@@ -1,3 +1,8 @@
+--[[
+Enables directory and file management through a standard buffer interface.
+Provides more information than mini files at the expensive of being a full screen float.
+--]]
+
 --[[ INSTALL --]]
 
 vim.pack.add({ 'https://github.com/stevearc/oil.nvim' }, { confirm = false })
@@ -6,10 +11,10 @@ vim.pack.add({ 'https://github.com/stevearc/oil.nvim' }, { confirm = false })
 
 require('oil').setup({
   columns = {
-    "icon",
-    "permissions",
-    "size",
-    "mtime"
+    'icon',
+    'permissions',
+    'size',
+    'mtime'
   },
   view_options = {
     show_hidden = true
@@ -23,4 +28,4 @@ require('oil').setup({
 
 --[[ KEY BINDINGS --]]
 
-vim.keymap.set("n", "<leader>o", require("oil").open_float, { desc = "Open Oil in float" })
+vim.keymap.set('n', '<leader>o', require('oil').open_float, { desc = 'Open Oil in float' })

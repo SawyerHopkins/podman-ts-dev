@@ -1,3 +1,9 @@
+--[[
+Uses mason to install requested language server binaries and
+makes them available using nvim-lspconfig (managed through vim.lsp as of 0.11).
+Provides data for code completion, diagnostics, and formatting.
+--]]
+
 --[[ INSTALL --]]
 
 vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' }, { confirm = false })

@@ -1,3 +1,7 @@
+--[[
+Adds (fuzzy) search functionality for various providers (buffers, lsp, git)
+--]]
+
 --[[ INSTALL --]]
 
 vim.pack.add({ 'https://github.com/nvim-lua/plenary.nvim' }, { confirm = false })
