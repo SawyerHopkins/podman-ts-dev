@@ -126,30 +126,30 @@ require('mini.trailspace').setup()
 --[[ KEY BINDINGS --]]
 
 -- Minimap keys
-vim.keymap.set('n', '<Leader>mc', MiniMap.close, { desc = 'Close minimap' })
-vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = 'Toggle minimap focus' })
-vim.keymap.set('n', '<Leader>mo', MiniMap.open, { desc = 'Open minimap' })
-vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, { desc = 'Refresh minimap' })
-vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, { desc = 'Toggle minimap side' })
-vim.keymap.set('n', '<Leader>mt', MiniMap.toggle, { desc = 'Toggle minimap' })
+vim.keymap.set('n', '<leader>mc', MiniMap.close, { desc = 'Close minimap' })
+vim.keymap.set('n', '<leader>mf', MiniMap.toggle_focus, { desc = 'Toggle minimap focus' })
+vim.keymap.set('n', '<leader>mo', MiniMap.open, { desc = 'Open minimap' })
+vim.keymap.set('n', '<leader>mr', MiniMap.refresh, { desc = 'Refresh minimap' })
+vim.keymap.set('n', '<leader>ms', MiniMap.toggle_side, { desc = 'Toggle minimap side' })
+vim.keymap.set('n', '<leader>mt', MiniMap.toggle, { desc = 'Toggle minimap' })
 require('which-key').add({
-  { '<Leader>m', group = 'Minimap', icon = '' }
+  { '<leader>m', group = '[m]inimap', icon = '' }
 })
 
 -- Sessions keys
-vim.keymap.set('n', '<Leader>nvw', function()
+vim.keymap.set('n', '<leader>pw', function()
   require('mini.sessions').write()
 end, { desc = 'Write current session' })
 
-vim.keymap.set('n', '<Leader>nvr', function()
+vim.keymap.set('n', '<leader>pr', function()
   require('mini.sessions').read()
 end, { desc = 'Read default session' })
 
-vim.keymap.set('n', '<Leader>nvd', function()
+vim.keymap.set('n', '<leader>pd', function()
   require('mini.sessions').delete()
 end, { desc = 'Delete current session' })
 require('which-key').add({
-  { '<Leader>m', group = 'Minimap', icon = '' }
+  { '<leader>p', group = '[p]ersistent sessions', icon = '' }
 })
 
 -- Completion
@@ -161,4 +161,15 @@ mini_key_map.map_multistep('i', '<BS>',    { 'minipairs_bs' })
 -- No ESC reach
 local mode = { 'i', 'c', 'x', 's' }
 mini_key_map.map_combo(mode, 'jk', '<BS><BS><Esc>')
-mini_key_map.map_combo(mode, 'kj', '<BS><BS><Esc>') -- To not have to worry about the order of keys, also map "kj"
+mini_key_map.map_combo(mode, 'kj', '<BS><BS><Esc>') -- To not have to worry about the order of keys, also map 'kj'
+
+-- Help me
+local notify_many_keys = function(key, suggestion)
+  local lhs = string.rep(key, 5)
+  local action = function() vim.notify('Too many ' .. key .. '. Try ' .. suggestion) end
+  require('mini.keymap').map_combo({ 'n', 'x' }, lhs, action)
+end
+notify_many_keys('h', 'b')
+notify_many_keys('j', ']}')
+notify_many_keys('k', '[{')
+notify_many_keys('l', 'e or w')

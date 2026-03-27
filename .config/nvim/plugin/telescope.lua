@@ -38,7 +38,7 @@ vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = 'Telescope registe
 vim.keymap.set('n', '<leader>fsp', builtin.spell_suggest, { desc = 'Telescope spelling suggestions' })
 vim.keymap.set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'Telescope workspace symbols' })
 require('which-key').add({
-  { '<leader>f', group = 'Find' }
+  { '<leader>f', group = '[f]ind' }
 })
 
 -- Local search (find) key finds
@@ -49,7 +49,7 @@ vim.keymap.set('n', '<leader>sq', builtin.quickfix, { desc = 'Telescope quick fi
 vim.keymap.set('n', '<leader>st', builtin.treesitter, { desc = 'Telescope treesitter' })
 vim.keymap.set('n', '<leader>sT', builtin.current_buffer_tags, { desc = 'Telescope search buffer tags' })
 require('which-key').add({
-  { '<leader>s', group = 'Search' }
+  { '<leader>s', group = '[s]earch' }
 })
 
 -- Git key binds
@@ -59,7 +59,7 @@ vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, { desc = 'Telescope buff
 vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Telescope git status' })
 vim.keymap.set('n', '<leader>gS', builtin.git_stash, { desc = 'Telescope git stash' })
 require('which-key').add({
-  { '<leader>g', group = 'Git' }
+  { '<leader>g', group = '[g]it' }
 })
 
 -- LSP key binds
