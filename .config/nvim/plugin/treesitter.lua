@@ -24,26 +24,18 @@ vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' 
 
 local nts = require('nvim-treesitter')
 nts.install({
-  -- 'bash',
-  -- 'css',
-  -- 'dockerfile',
-  -- 'git_config',
-  -- 'git_rebase',
-  -- 'gitattributes',
-  -- 'gitcommit',
-  -- 'gitignore',
-  -- 'html',
-  -- 'javascript',
-  -- 'json',
-  -- 'robots_txt',
-  -- 'scss',
-  -- 'sql',
-  -- 'tsx',
+  'css',
+  'hcl',
+  'html',
+  'javascript',
+  'json',
+  'scss',
+  'sql',
+  'tsx',
   'typescript',
-  -- 'vim',
   'vue',
-  -- 'xml',
-  -- 'yaml'
+  'xml',
+  'yaml'
 })
 
 require('treesitter-context').setup({

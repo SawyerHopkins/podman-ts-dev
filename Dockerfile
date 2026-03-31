@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
+# install mise, which will be used to install required packages
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 
 # make sure mise is activated in both zsh and bash. Might be overridden by a user's dotfiles.
