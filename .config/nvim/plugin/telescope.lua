@@ -27,39 +27,34 @@ vim.api.nvim_create_autocmd('User', {
 
 --[[ KEY BINDINGS --]]
 
--- Global search (find) key binds
-vim.keymap.set('n', '<leader>fac', builtin.autocommands, { desc = 'Telescope auto commands' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope keymaps' })
-vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = 'Telescope registers' })
-vim.keymap.set('n', '<leader>fsp', builtin.spell_suggest, { desc = 'Telescope spelling suggestions' })
-vim.keymap.set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'Telescope workspace symbols' })
+-- Global search key binds
+vim.keymap.set('n', '<leader>sac', builtin.autocommands, { desc = 'Search auto commands' })
+vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Search buffers' })
+vim.keymap.set('n', '<leader>sds', builtin.lsp_document_symbols, { desc = 'Search document symbols' })
+vim.keymap.set('n', '<leader>sD', builtin.diagnostics, { desc = 'Search diagnostics' })
+vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search files' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search grep' })
+vim.keymap.set('n', '<leader>sh', builtin.current_buffer_fuzzy_find, { desc = 'Search here' })
+vim.keymap.set('n', '<leader>sH', builtin.help_tags, { desc = 'Search help tags' })
+vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search keymaps' })
+vim.keymap.set('n', '<leader>sr', builtin.registers, { desc = 'Search registers' })
+vim.keymap.set('n', '<leader>ssp', builtin.spell_suggest, { desc = 'Search spelling suggestions' })
+vim.keymap.set('n', '<leader>sws', builtin.lsp_workspace_symbols, { desc = 'Search workspace symbols' })
+vim.keymap.set('n', '<leader>sqf', builtin.quickfix, { desc = 'Search quick fix' })
+vim.keymap.set('n', '<leader>st', builtin.treesitter, { desc = 'Search treesitter' })
+vim.keymap.set('n', '<leader>sT', builtin.current_buffer_tags, { desc = 'Search buffer tags' })
 require('which-key').add({
-  { '<leader>f', group = '[f]ind' }
-})
-
--- Local search (find) key finds
-vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Telescope diagnostics' })
-vim.keymap.set('n', '<leader>sf', builtin.current_buffer_fuzzy_find, { desc = 'Telescope search buffer' })
-vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = 'Telescope document symbols' })
-vim.keymap.set('n', '<leader>sq', builtin.quickfix, { desc = 'Telescope quick fix' })
-vim.keymap.set('n', '<leader>st', builtin.treesitter, { desc = 'Telescope treesitter' })
-vim.keymap.set('n', '<leader>sT', builtin.current_buffer_tags, { desc = 'Telescope search buffer tags' })
-require('which-key').add({
-  { '<leader>s', group = '[s]earch' }
+  { '<leader>s', group = '[s]earch', icon = '' }
 })
 
 -- Git key binds
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope git branches' })
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'Telescope commits' })
-vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, { desc = 'Telescope buffer commits' })
-vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Telescope git status' })
-vim.keymap.set('n', '<leader>gS', builtin.git_stash, { desc = 'Telescope git stash' })
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Git branches' })
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'Git commits' })
+vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, { desc = 'Git buffer commits' })
+vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Git status' })
+vim.keymap.set('n', '<leader>gS', builtin.git_stash, { desc = 'Git stash' })
 require('which-key').add({
-  { '<leader>g', group = '[g]it' }
+{ '<leader>g', group = '[g]it', icon = '' }
 })
 
 -- LSP key binds

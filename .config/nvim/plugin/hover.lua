@@ -29,7 +29,3 @@ vim.keymap.set('n', '<C-n>', function()
     require('hover').switch('next')
 end, { desc = 'hover.nvim (next source)' })
 
--- Mouse support
-vim.keymap.set('n', '<MouseMove>', function()
-  require('hover').mouse()
-end, { desc = 'hover.nvim (mouse)' })

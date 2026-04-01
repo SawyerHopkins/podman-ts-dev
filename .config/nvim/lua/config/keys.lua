@@ -6,4 +6,3 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to Right Window', remap = tr
 
 -- File keys
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
-vim.keymap.set('n', '<leader>fn', '<cmd>enew<cr>', { desc = 'New File' })

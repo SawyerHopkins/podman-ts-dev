@@ -28,4 +28,9 @@ require('oil').setup({
 
 --[[ KEY BINDINGS --]]
 
-vim.keymap.set('n', '<leader>o', require('oil').open_float, { desc = 'Open Oil in float' })
+vim.keymap.set('n', '<leader>fe', require('oil').open_float, { desc = 'File explorer (oil)' })
+require('which-key').add({
+  { '<leader>f', group = '[f]ile', icon = '' }
+})
+
+

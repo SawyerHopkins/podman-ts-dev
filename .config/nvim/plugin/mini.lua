@@ -97,23 +97,6 @@ map.setup({
 -- Notification system (replaces vim.notify with better UI)
 require('mini.notify').setup()
 
--- Start screen/dashboard
-local starter = require('mini.starter')
-starter.setup({
-    items = {
-      {
-      starter.sections.sessions(3),
-      starter.sections.recent_files(5, true, true),
-      },
-      starter.sections.builtin_actions(),
-      starter.sections.telescope(),
-    },
-    content_hooks = {
-      starter.gen_hook.adding_bullet(),
-      starter.gen_hook.aligning('center', 'center'),
-    },
-})
-
 -- Lightweight and customizable statusline
 require('mini.statusline').setup()
 
@@ -126,11 +109,8 @@ require('mini.trailspace').setup()
 --[[ KEY BINDINGS --]]
 
 -- Minimap keys
-vim.keymap.set('n', '<leader>mc', MiniMap.close, { desc = 'Close minimap' })
 vim.keymap.set('n', '<leader>mf', MiniMap.toggle_focus, { desc = 'Toggle minimap focus' })
-vim.keymap.set('n', '<leader>mo', MiniMap.open, { desc = 'Open minimap' })
 vim.keymap.set('n', '<leader>mr', MiniMap.refresh, { desc = 'Refresh minimap' })
-vim.keymap.set('n', '<leader>ms', MiniMap.toggle_side, { desc = 'Toggle minimap side' })
 vim.keymap.set('n', '<leader>mt', MiniMap.toggle, { desc = 'Toggle minimap' })
 require('which-key').add({
   { '<leader>m', group = '[m]inimap', icon = '' }
