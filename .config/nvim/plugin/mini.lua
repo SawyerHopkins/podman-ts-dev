@@ -60,6 +60,9 @@ require('mini.basics').setup()
 -- Navigate between bracketed items (buffers, files, diagnostics, etc.)
 require('mini.bracketed').setup()
 
+-- Allow removing buffers without closing windows
+require('mini.bufremove').setup()
+
 -- Enhanced command-line UI (better completion and visuals)
 require('mini.cmdline').setup()
 
@@ -131,6 +134,11 @@ end, { desc = 'Delete current session' })
 require('which-key').add({
   { '<leader>p', group = '[p]ersistent sessions', icon = '' }
 })
+
+-- Buffer keys
+vim.keymap.set("n", "<leader>bc", function()
+  require("mini.bufremove").delete()
+end, { desc = "Close buffer" })
 
 -- Completion
 mini_key_map.map_multistep('i', '<Tab>',   { 'pmenu_next' })

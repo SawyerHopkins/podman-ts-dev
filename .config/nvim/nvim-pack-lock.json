@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "codecompanion.nvim": {
+      "rev": "ed70638e9d0922177affc89a97c2d7bf338dac8f",
+      "src": "https://www.github.com/olimorris/codecompanion.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"

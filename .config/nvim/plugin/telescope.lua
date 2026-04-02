@@ -11,7 +11,44 @@ vim.pack.add({ 'https://github.com/folke/which-key.nvim' }, { confirm = false })
 
 --[[ SETUP --]]
 
-require('telescope').setup()
+local sendToGrep = function(prompt_bufnr)
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  local builtin = require("telescope.builtin")
+
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local selections = picker:get_multi_selection()
+
+  -- if nothing was multi-selected, use the current highlight
+  if #selections == 0 then
+    table.insert(selections, action_state.get_selected_entry())
+  end
+
+  actions.close(prompt_bufnr)
+
+  -- collect unique directories from all selections
+  local dirs = {}
+  local seen = {}
+  for _, entry in ipairs(selections) do
+    local dir = vim.fn.fnamemodify(entry.path or entry.value, ":h")
+    if not seen[dir] then
+      seen[dir] = true
+      table.insert(dirs, dir)
+    end
+  end
+
+  builtin.live_grep({ search_dirs = dirs })
+end
+
+require('telescope').setup({
+  pickers = {
+    find_files = {
+      mappings = {
+        n = { ["<C-g>"] = sendToGrep }
+      }
+    }
+  }
+})
 local builtin = require('telescope.builtin')
 
 vim.api.nvim_create_autocmd('User', {
@@ -37,6 +74,7 @@ vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search grep' })
 vim.keymap.set('n', '<leader>sh', builtin.current_buffer_fuzzy_find, { desc = 'Search here' })
 vim.keymap.set('n', '<leader>sH', builtin.help_tags, { desc = 'Search help tags' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search keymaps' })
+vim.keymap.set('n', '<leader>sp', builtin.builtin, { desc = 'Search pickers' })
 vim.keymap.set('n', '<leader>sr', builtin.registers, { desc = 'Search registers' })
 vim.keymap.set('n', '<leader>ssp', builtin.spell_suggest, { desc = 'Search spelling suggestions' })
 vim.keymap.set('n', '<leader>sws', builtin.lsp_workspace_symbols, { desc = 'Search workspace symbols' })

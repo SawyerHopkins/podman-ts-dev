@@ -33,4 +33,11 @@ require('which-key').add({
   { '<leader>f', group = '[f]ile', icon = '' }
 })
 
+vim.keymap.set("n", "<leader>_c", function()
+  require("oil").open(vim.fn.stdpath("config"))
+end, { desc = "Neovim config" })
+require('which-key').add({
+  { '<leader>_', group = '[_]neovim', icon = '' }
+})
+
 
