@@ -7,7 +7,8 @@ vim.o.mousemoveevent = false -- Enable mouse move events (triggers events on mou
 vim.g.no_plugin_maps = true -- Disable entire built-in ftplugin mappings to avoid conflicts.
 vim.opt.cursorline = true   -- Enable highlighting of the current line
 vim.opt.clipboard = vim.env.SSH_CONNECTION and '' or 'unnamedplus' -- Sync with system clipboard
-
+vim.g.loaded_netrw = 1 -- Disable netrw
+vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
 --[[
   Set status line filename highlight color when buffer is dirty 
