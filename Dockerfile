@@ -18,8 +18,8 @@ COPY mise.local.toml /mise.local.toml
 RUN /usr/local/bin/mise trust /mise.toml && \
   /usr/local/bin/mise install
 
-# install config
-COPY --chown=vscode:vscode .config /home/vscode/.config
+# install configs
+RUN git clone https://github.com/SawyerHopkins/podman-config-nvim.git /home/vscode/.config/nvim
 
 # launch settings
 WORKDIR /workspaces
