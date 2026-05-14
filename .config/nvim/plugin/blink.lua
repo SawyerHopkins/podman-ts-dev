@@ -10,9 +10,7 @@ vim.pack.add({
 
 require('blink.cmp').setup({
   keymap = {
-    preset = 'enter',
-    ['<Tab>'] = { 'select_next', 'fallback' },
-    ['<S-Tab>'] = { 'select_prev', 'fallback' }
+    preset = 'super-tab',
   },
   completion = {
     list = {
@@ -35,7 +33,14 @@ require('blink.cmp').setup({
     }
   },
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
+    default = { 'lsp', 'path', 'buffer' },
+    providers = {
+      path = {
+        opts = {
+          trailing_slash = false
+        }
+      }
+    }
   },
   fuzzy = {
     implementation = 'prefer_rust_with_warning',

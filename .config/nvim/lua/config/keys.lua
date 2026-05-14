@@ -247,6 +247,17 @@ require('which-key').add({
 vim.keymap.set('n', '<leader>ht', vim.lsp.buf.hover, { desc = 'LSP' })
 vim.keymap.set('n', '<leader>hs', vim.lsp.buf.signature_help, { desc = 'Signature' })
 vim.keymap.set('n', '<leader>hd', vim.diagnostic.open_float, { desc = 'Diagnostics' })
+vim.keymap.set('n', '<leader>ha', function () 
+  vim.lsp.buf.code_action({
+    filter = function(action)
+      if action.disabled then
+        return false
+      end
+      return true
+    end,
+    apply = false
+  })
+end, { desc = 'Code Actions' })
 require('which-key').add({
   { '<leader>h', group = '[h]over', icon = '󰇀' }
 })

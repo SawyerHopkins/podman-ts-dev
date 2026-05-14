@@ -10,6 +10,10 @@ vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' }, { confirm = false }
 
 vim.lsp.config('vue_ls', {
   init_options = {
+    languageFeatures = {
+      defaultTagNameCase = 'pascalCase',
+      defaultAttrNameCase = 'kebabCase',
+    },
     vue = {
       hybridMode = true
     }
@@ -30,6 +34,50 @@ vim.lsp.config('vtsls', {
         },
       },
     },
+    typescript = {
+      updateImportsOnFileMove = { enabled = 'always' },
+      suggest = {
+        completeFunctionCalls = true,
+      },
+      inlayHints = {
+        enumMemberValues = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+        parameterNames = { enabled = 'literals' },
+        parameterTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        variableTypes = { enabled = false },
+      },
+      preferences = {
+        importModuleSpecifier = 'shortest',
+        importModuleSpecifierEnding = 'minimal',
+        jsxAttributeCompletionStyle = 'auto',
+        quoteStyle = 'single',
+        useAliasesForRenames = false,
+        autoImportFileExcludePatterns = {
+          'node_modules/*',
+        },
+      },
+    },
+    javascript = {
+      updateImportsOnFileMove = { enabled = 'always' },
+      suggest = {
+        completeFunctionCalls = true,
+      },
+      inlayHints = {
+        enumMemberValues = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+        parameterNames = { enabled = 'literals' },
+        parameterTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        variableTypes = { enabled = false },
+      },
+      preferences = {
+        importModuleSpecifier = 'shortest',
+        importModuleSpecifierEnding = 'minimal',
+        jsxAttributeCompletionStyle = 'auto',
+        quoteStyle = 'single',
+      },
+    },
   },
   filetypes = {
     'typescript',
@@ -48,7 +96,3 @@ vim.lsp.config('vtsls', {
   end
 })
 
-vim.lsp.enable({
-  'vtsls',
-  'vue_ls'
-})
